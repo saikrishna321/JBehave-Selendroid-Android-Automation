@@ -38,3 +38,22 @@ This will run a single story (one contained in a PHTNhomespage.story file):
 This will run a suite based on the meta filters in the three story files:
 
     mvn clean install -Dmeta.filter="+color red"
+
+
+## Viewing the results
+
+In directory target/jbehave/view, a page named 'reports.html' has been generated, which you open that in any browser to the stories that have run and their execution status.
+
+There should be a row for each story.  The story reports are clickable to via links on the right-most column.
+
+In directory target/jbehave/view, a page named 'navigator.html' has been generated, which you open that in any browser to get the story navigation
+
+##Test Execution 
+
+The tutorial aims to provide a fully-functional project that you can use to model you own project:
+
+1. src/main/java/com/selendroid/jbehave/MyStories.java is the entry-point that JBehave uses to run the stories. 
+2. src/main/resources contains the stories run by JBehave via MyStories.java.
+3. src/main/java/com/selendroid/jbehave/steps/MySteps.java contains the steps.
+4. src/main/resources/my-steps.xml contains the Spring configuration for composition the steps.
+
