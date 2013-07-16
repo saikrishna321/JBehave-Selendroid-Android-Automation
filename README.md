@@ -15,7 +15,7 @@ This tutorial uses JBehave 3.x,Selendroid 4.x and Selenium 2.x to test Android N
 
 
 
-##Creating a Selendroid Server for the application 
+#Creating a Selendroid Server for the application.
 
 Follow the below link to create the selendroid server for your test application .
 
