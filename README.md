@@ -3,7 +3,7 @@ JBehave-Selendroid-Android-Automation
 
 <img src="http://jbehave.org/reference/preview/images/jbehave-logo.png" alt="JBehave logo" align="right" /> 
 
-<img src="http://sauceio.com/wp-content/uploads/2011/11/selenium-logo-150x150.png" alt="Selenium logo" align="left" /> 
+<img src="http://sauceio.com/wp-content/uploads/2011/11/selenium-logo-150x150.png" alt="Selenium logo" align="right" /> 
 
 Android Automation with Selendroid and JBehave 
 
