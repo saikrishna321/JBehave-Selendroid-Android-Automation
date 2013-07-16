@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>com.photon.jbehave.stories.PHTNhomepage</title>
+<style type="text/css" media="all">
+@import url( "./style/jbehave-core.css" );
+</style>
+</head>
+<body>
+ 
+<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<story path="com/photon/jbehave/stories/PHTNhomepage.story" title="">
+<meta>
+<property keyword="@" name="author" value="Sai Krishna"/>
+<property keyword="@" name="color" value="red"/>
+</meta>
+<narrative keyword="Narrative:">
+  <inOrderTo keyword="In order to">search for the Ticketing Theaters</inOrderTo>
+  <asA keyword="As a">user</asA>
+  <iWantTo keyword="I want to">display the results within a search range .</iWantTo>
+</narrative>
+<scenario keyword="Scenario:" title="Retain the search range value when moving between the tabs">
+<examples keyword="Examples:">
+<step>Given A user must be able to view search field</step>
+<step>When A user performs a search with &lt;element&gt;</step>
+<step>Then verify the text enter is &lt;element&gt;</step>
+<parameters>
+<names><name>element</name></names>
+<values><value>selendroid</value></values>
+<values><value>cars</value></values>
+</parameters>
+
+<example keyword="Example:">{element=selendroid}</example>
+<step outcome="successful">Given A user must be able to view search field</step>
+<step outcome="successful">When A user performs a search with <parameter><parameter>selendroid</parameter></parameter></step>
+<step outcome="successful">Then verify the text enter is <parameter><parameter>selendroid</parameter></parameter></step>
+
+<example keyword="Example:">{element=cars}</example>
+<step outcome="successful">Given A user must be able to view search field</step>
+<step outcome="successful">When A user performs a search with <parameter><parameter>cars</parameter></parameter></step>
+<step outcome="failed" keyword="FAILED">Then verify the text enter is <parameter><parameter>cars</parameter></parameter><failure>java.lang.AssertionError: expected [selendroidcars] but found [cars]</failure></step>
+</examples>
+</scenario>
+</story>
+
+]]></script>
+</body>
+<!--  SyntaxHighlighter resources:  should be included at end of body -->
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shCore.css"/>
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shThemeRDark.css"/>
+<script language="javascript" src="./js/sh-3.0.83/shCore.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushBash.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushCss.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushDiff.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushGroovy.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJava.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJScript.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPlain.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPython.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushRuby.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushScala.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushXml.js"></script>
+<script language="javascript" src="./js/shBrushBdd.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;    
+    SyntaxHighlighter.all();
+</script>
+</html>

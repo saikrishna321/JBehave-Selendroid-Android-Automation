@@ -1,0 +1,76 @@
+{"xref": {
+  "whenMade": 1373951285702,
+  "createdBy": "JBehave",
+  "metaFilter": "",
+  "meta": [
+    "author=Sai Krishna",
+    "color=red"
+  ],
+  "stories": [
+    {
+      "description": "",
+      "narrative": "In order to search for the Ticketing Theaters\u000aAs a user\u000aI want to display the results within a search range .\u000a",
+      "name": "PHTNhomepage.story",
+      "path": "com/photon/jbehave/stories/PHTNhomepage.story",
+      "html": "com.photon.jbehave.stories.PHTNhomepage.html",
+      "meta": "author=Sai Krishna\u000acolor=red\u000a",
+      "scenarios": "Scenario:Retain the search range value when moving between the tabs\u000aGiven A user must be able to view search field\u000aWhen A user performs a search with <element>\u000aThen verify the text enter is <element>\u000a\u000a\u000a",
+      "passed": false,
+      "started": 1373951280926,
+      "duration": 4238
+    }
+  ],
+  "stepMatches": [
+    {
+      "type": "GIVEN",
+      "annotatedPattern": "A user must be able to view search field",
+      "resolvedPattern": "A\\s+user\\s+must\\s+be\\s+able\\s+to\\s+view\\s+search\\s+field",
+      "usages": [
+        {
+          "story": "com/photon/jbehave/stories/PHTNhomepage.story",
+          "scenario": "Retain the search range value when moving between the tabs",
+          "step": "Given A user must be able to view search field"
+        },
+        {
+          "story": "com/photon/jbehave/stories/PHTNhomepage.story",
+          "scenario": "Retain the search range value when moving between the tabs",
+          "step": "Given A user must be able to view search field"
+        }
+      ]
+    },
+    {
+      "type": "WHEN",
+      "annotatedPattern": "A user performs a search with <element>",
+      "resolvedPattern": "A\\s+user\\s+performs\\s+a\\s+search\\s+with\\s+<element>",
+      "usages": [
+        {
+          "story": "com/photon/jbehave/stories/PHTNhomepage.story",
+          "scenario": "Retain the search range value when moving between the tabs",
+          "step": "When A user performs a search with <element>"
+        },
+        {
+          "story": "com/photon/jbehave/stories/PHTNhomepage.story",
+          "scenario": "Retain the search range value when moving between the tabs",
+          "step": "When A user performs a search with <element>"
+        }
+      ]
+    },
+    {
+      "type": "THEN",
+      "annotatedPattern": "verify the text enter is <element>",
+      "resolvedPattern": "verify\\s+the\\s+text\\s+enter\\s+is\\s+<element>",
+      "usages": [
+        {
+          "story": "com/photon/jbehave/stories/PHTNhomepage.story",
+          "scenario": "Retain the search range value when moving between the tabs",
+          "step": "Then verify the text enter is <element>"
+        },
+        {
+          "story": "com/photon/jbehave/stories/PHTNhomepage.story",
+          "scenario": "Retain the search range value when moving between the tabs",
+          "step": "Then verify the text enter is <element>"
+        }
+      ]
+    }
+  ]
+}}

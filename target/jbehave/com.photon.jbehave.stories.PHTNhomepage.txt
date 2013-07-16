@@ -1,0 +1,33 @@
+
+(com/photon/jbehave/stories/PHTNhomepage.story)
+Meta:
+@author Sai Krishna
+@color red
+
+Narrative:
+In order to search for the Ticketing Theaters
+As a user
+I want to display the results within a search range .
+Scenario: Retain the search range value when moving between the tabs
+Examples:
+Given A user must be able to view search field
+When A user performs a search with <element>
+Then verify the text enter is <element>
+
+|element|
+|selendroid|
+|cars|
+
+Example: {element=selendroid}
+Given A user must be able to view search field
+When A user performs a search with selendroid
+Then verify the text enter is selendroid
+
+Example: {element=cars}
+Given A user must be able to view search field
+When A user performs a search with cars
+Then verify the text enter is cars (FAILED)
+(java.lang.AssertionError: expected [selendroidcars] but found [cars])
+
+
+
