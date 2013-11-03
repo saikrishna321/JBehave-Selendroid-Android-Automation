@@ -9,7 +9,7 @@
 
 
 
-	<bean id="mysteps" class="com.photon.jbehave.steps.MySteps">
+	<bean id="mysteps" class="com.selendroid.jbehave.steps.MySteps">
 	</bean>
 	
 

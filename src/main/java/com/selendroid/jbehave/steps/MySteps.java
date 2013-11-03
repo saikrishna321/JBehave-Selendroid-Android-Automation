@@ -9,49 +9,50 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder;
+import org.testng.annotations.AfterClass;
 
+import com.selendroid.jbehave.pages.HomePage;
 import com.test.util.CommonMethods;
-import com.test.util.ObjectRepo;
 
-public class MySteps extends CommonMethods {
+public class MySteps {
+
+	HomePage home = new HomePage();
 
 	@BeforeScenario
 	public void startServer() throws Exception {
 		System.out.println("********Start the Selendroid Server**********");
-		startApplication();
+		CommonMethods.startApplication();
 
 	}
 
 	@AfterScenario
 	public void killApplication() {
-
-		killApp();
+		System.out.println("********Closing the Selendroid Server**********");
+		CommonMethods.killApp();
 	}
 
 	@AfterScenario(uponOutcome = Outcome.FAILURE)
 	public void onFailureTakeScreenShot() throws Exception {
 
-		takeScreenShot();
+		CommonMethods.takeScreenShot();
 
 	}
 
 	@Given("A user must be able to view search field")
 	public void homepage() throws MalformedURLException {
-		openStartActivity();
-		assertInputField(ObjectRepo.assertInputText);
-
+		CommonMethods.openStartActivity();
+		home.assertInputFieldExists();
 	}
 
 	@When("A user performs a search with <element>")
 	public void searchRange(@Named("element") String element) throws Exception {
-		inputByID(ObjectRepo.searchField, element);
 
+		home.inputSearchText(element);
 	}
 
 	@Then("verify the text enter is <element>")
 	public void verifySearchResults(@Named("element") String element) {
-		assertTextPresent(ObjectRepo.searchField, element);
+		home.assertTextEntered(element);
 	}
 
 }

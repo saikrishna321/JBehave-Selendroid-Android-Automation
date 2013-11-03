@@ -1,7 +1,9 @@
 package com.test.util;
 
 import io.selendroid.SelendroidCapabilities;
+import io.selendroid.SelendroidConfiguration;
 import io.selendroid.SelendroidDriver;
+import io.selendroid.SelendroidLauncher;
 import io.selendroid.device.DeviceTargetPlatform;
 
 import java.io.File;
@@ -19,14 +21,15 @@ import org.testng.Assert;
 
 public class CommonMethods {
 
-	// public SelendroidCapabilities capa;
-	public WebDriver driver;
-	final String pathSeparator = File.separator;
+	
+	public static WebDriver driver;
+	final static String pathSeparator = File.separator;
 	public static final String NATIVE_APP = "NATIVE_APP";
 	public static final String WEBVIEW = "WEBVIEW";
 	public static final String appId = "io.selendroid.testapp:0.5.1";
 
-	public void startApplication() throws Exception {
+	public static void startApplication() throws Exception {
+
 		SelendroidCapabilities capa = SelendroidCapabilities.device(
 				DeviceTargetPlatform.ANDROID17, appId);
 
@@ -34,11 +37,13 @@ public class CommonMethods {
 
 	}
 
-	public void killApp() {
+	public static void killApp() {
+
 		driver.quit();
+
 	}
 
-	public void openStartActivity() {
+	public static void openStartActivity() {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 		String activityClass = "io.selendroid.testapp." + "HomeScreenActivity";
@@ -65,7 +70,12 @@ public class CommonMethods {
 
 	}
 
-	protected void takeScreenShot() throws Exception {
+	public void clearField(String id) {
+
+		driver.findElement(By.id(id)).clear();
+	}
+
+	public static void takeScreenShot() throws Exception {
 		WebDriver augmentedDriver = new Augmenter().augment(driver);
 		File screenshot = ((TakesScreenshot) augmentedDriver)
 				.getScreenshotAs(OutputType.FILE);

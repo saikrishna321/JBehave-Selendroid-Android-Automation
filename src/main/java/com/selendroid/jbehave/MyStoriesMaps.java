@@ -82,7 +82,7 @@ public class MyStoriesMaps extends JUnitStoryMaps {
 
     @Override
     protected List<String> storyPaths() {
-        return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "**/PHTN*.story", "**/excluded*.story");
+        return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "**/*.story", "**/excluded*.story");
                 
     }
 

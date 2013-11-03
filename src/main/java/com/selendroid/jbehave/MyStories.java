@@ -3,6 +3,7 @@ package com.selendroid.jbehave;
 import static java.util.Arrays.asList;
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import static org.jbehave.core.reporters.Format.CONSOLE;
+import static org.jbehave.core.reporters.Format.HTML;
 import static org.jbehave.core.reporters.Format.TXT;
 import static org.jbehave.core.reporters.Format.XML;
 
@@ -22,7 +23,6 @@ import org.jbehave.core.parsers.RegexStoryParser;
 import org.jbehave.core.reporters.CrossReference;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
-import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
 import org.jbehave.core.steps.ParameterConverters.ExamplesTableConverter;
@@ -30,14 +30,10 @@ import org.jbehave.core.steps.spring.SpringApplicationContextFactory;
 import org.jbehave.core.steps.spring.SpringStepsFactory;
 import org.jbehave.web.selenium.PerStoriesWebDriverSteps;
 import org.jbehave.web.selenium.PropertyWebDriverProvider;
-import org.jbehave.web.selenium.WebDriverHtmlOutput;
 import org.jbehave.web.selenium.WebDriverProvider;
-import org.jbehave.web.selenium.WebDriverScreenshotOnFailure;
 import org.jbehave.web.selenium.WebDriverSteps;
 import org.junit.Before;
 import org.springframework.context.ApplicationContext;
-
-import com.selendroid.jbehave.steps.MySteps;
 
 /**
  * <p>
@@ -55,6 +51,7 @@ public class MyStories extends JUnitStories {
 	private WebDriverProvider driverProvider = new PropertyWebDriverProvider();
 	private WebDriverSteps lifecycleSteps = new PerStoriesWebDriverSteps(
 			driverProvider);
+
 
 	@Before
 	public void init() {
@@ -97,9 +94,7 @@ public class MyStories extends JUnitStories {
 										CodeLocations
 												.codeLocationFromClass(embeddableClass))
 								.withDefaultFormats()
-								.withFormats(CONSOLE, TXT,
-										WebDriverHtmlOutput.WEB_DRIVER_HTML,
-										XML).withCrossReference(xref))
+								.withFormats(CONSOLE, TXT, HTML, XML).withCrossReference(xref))
 				.useParameterConverters(parameterConverters)
 				.useStepMonitor(xref.getStepMonitor());
 	}
@@ -113,11 +108,12 @@ public class MyStories extends JUnitStories {
 
 		return new SpringStepsFactory(configuration(), context);
 
-		
-		/*  return new InstanceStepsFactory(configuration, new MySteps(),
-		  lifecycleSteps, new WebDriverScreenshotOnFailure( driverProvider,
-		  configuration.storyReporterBuilder()), context);*/
-		 
+		/*
+		 * return new InstanceStepsFactory(configuration, new MySteps(),
+		 * lifecycleSteps, new WebDriverScreenshotOnFailure( driverProvider,
+		 * configuration.storyReporterBuilder()), context);
+		 */
+
 	}
 
 	protected List<String> storyPaths() {

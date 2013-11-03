@@ -32,7 +32,7 @@
 	<parent>
 		<groupId>io.selendroid</groupId>
 		<artifactId>selendroid</artifactId>
-		<version>0.4.2</version>
+		<version>0.5.1</version>
 	</parent>
 	<dependencies>
 		<dependency>
@@ -44,20 +44,20 @@
 		<dependency>
 			<groupId>io.selendroid</groupId>
 			<artifactId>selendroid-client</artifactId>
-			<version>0.4.2</version>
+			<version>0.5.1</version>
 		</dependency>
 
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>org.jbehave</groupId>
 			<artifactId>jbehave-navigator</artifactId>
 			<version>4.0-beta-3</version>
-		</dependency>
+		</dependency> -->
 
 
 		<dependency>
 			<groupId>io.selendroid</groupId>
 			<artifactId>selendroid-standalone</artifactId>
-			<version>0.4.2</version>
+			<version>0.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jbehave</groupId>
@@ -84,11 +84,7 @@
 			<artifactId>testng</artifactId>
 			<version>6.8</version>
 		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>2.32.0</version>
-		</dependency>
+		
 
 	</dependencies>
 
