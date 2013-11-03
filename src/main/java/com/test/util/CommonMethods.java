@@ -1,7 +1,10 @@
 package com.test.util;
 
+import io.selendroid.SelendroidCapabilities;
+import io.selendroid.SelendroidDriver;
+import io.selendroid.device.DeviceTargetPlatform;
+
 import java.io.File;
-import java.net.URL;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -11,9 +14,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.android.AndroidDriver;
 import org.openqa.selenium.remote.Augmenter;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 
 public class CommonMethods {
@@ -23,33 +24,18 @@ public class CommonMethods {
 	final String pathSeparator = File.separator;
 	public static final String NATIVE_APP = "NATIVE_APP";
 	public static final String WEBVIEW = "WEBVIEW";
-
-	public DesiredCapabilities getDefaultCapabilities() {
-		DesiredCapabilities capa = DesiredCapabilities.android();
-		capa.setCapability("aut", "Store Locator");
-		capa.setCapability("locale", "de_DE");
-		capa.setCapability("maxInstances", "1");
-		capa.setCapability("browserName", "selendroid");
-		return capa;
-	}
+	public static final String appId = "io.selendroid.testapp:0.5.1";
 
 	public void startApplication() throws Exception {
-		/*
-		 * capa = SelendroidCapabilities.device(DeviceTargetPlatform.ANDROID17,
-		 * "io.selendroid.testapp:0.4.2");
-		 * 
-		 * driver = new SelendroidDriver("http://localhost:5555/wd/hub", capa);
-		 */
+		SelendroidCapabilities capa = SelendroidCapabilities.device(
+				DeviceTargetPlatform.ANDROID17, appId);
 
-		driver = new AndroidDriver(new URL("http://localhost:8080/wd/hub"),
-				getDefaultCapabilities());
+		driver = new SelendroidDriver("http://localhost:5555/wd/hub", capa);
 
 	}
 
 	public void killApp() {
-
 		driver.quit();
-
 	}
 
 	public void openStartActivity() {
@@ -62,15 +48,14 @@ public class CommonMethods {
 
 	}
 
-	public void assertInputField() {
+	public void assertInputField(String objectId) {
 
-		WebElement inputField = driver.findElement(By.id("my_text_field"));
+		WebElement inputField = driver.findElement(By.id(objectId));
 		Assert.assertEquals("true", inputField.getAttribute("enabled"));
 	}
 
-	public void login() {
-
-		WebElement button = driver.findElement(By.id("signin_btn"));
+	public void clickButton(String objectButtonId) {
+		WebElement button = driver.findElement(By.id(objectButtonId));
 		button.click();
 
 	}
