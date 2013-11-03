@@ -52,7 +52,7 @@ In directory target/jbehave/view, a page named 'reports.html' has been generated
 
 There should be a row for each story.  The story reports are clickable to via links on the right-most column.
 
-In directory target/jbehave/view, a page named 'navigator.html' has been generated, which you open that in any browser to get the story navigation
+In directory target/jbehave/view, a page named 'navigator.html' has been generated,Open using Firefox alone to get the story navigation
 
 ##Test Execution 
 
