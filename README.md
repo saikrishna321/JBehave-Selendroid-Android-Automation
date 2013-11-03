@@ -22,6 +22,12 @@ Install the selendroid-server.apk once build onto the device.
 
 Resign the apk file and install the same on the device. 
 
+##Command line start of selendroid-standalone
+
+Go through Selendroid's setup instructions and download the current version from here(http://selendroid.io/setup.html 
+The applications that are we are using in this project are located in this folder(https://github.com/selendroid/demoproject-selendroid/tree/master/src/main/resources).
+
+java -jar selendroid-standalone-0.5.1-with-dependencies.jar -app selendroid-test-app-0.6.1.apk
 
 ## Running the stories
 
@@ -33,7 +39,7 @@ You should see your application  (installed on your device) flicker as it tests
 
 This will run a single story (one contained in a PHTNhomespage.story file):
 
-    mvn clean install -DstoryFilter=PHTNhomespage
+    mvn clean install -DstoryFilter=homespage
 
 This will run a suite based on the meta filters in the three story files:
 
