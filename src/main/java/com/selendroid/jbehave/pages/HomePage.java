@@ -20,4 +20,14 @@ public class HomePage extends CommonMethods {
 		assertTextPresent(ObjectRepo.searchField, element);
 		clearField(ObjectRepo.searchField);
 	}
+	
+	public void assertToastMessage(){
+		
+		assertTextByPartialLink("Hello selendroid toast!");
+	}
+	
+	public void clickToastButton(){
+		
+		clickButton(ObjectRepo.toastButton);
+	}
 }

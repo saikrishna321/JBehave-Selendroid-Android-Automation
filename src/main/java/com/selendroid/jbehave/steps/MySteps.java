@@ -4,7 +4,10 @@ import java.net.MalformedURLException;
 
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.AfterScenario.Outcome;
+import org.jbehave.core.annotations.AfterStories;
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.BeforeScenario;
+import org.jbehave.core.annotations.BeforeStories;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
@@ -18,14 +21,14 @@ public class MySteps {
 
 	HomePage home = new HomePage();
 
-	@BeforeScenario
+	@BeforeStories
 	public void startServer() throws Exception {
 		System.out.println("********Start the Selendroid Server**********");
 		CommonMethods.startApplication();
 
 	}
 
-	@AfterScenario
+	@AfterStories
 	public void killApplication() {
 		System.out.println("********Closing the Selendroid Server**********");
 		CommonMethods.killApp();
@@ -39,6 +42,7 @@ public class MySteps {
 	}
 
 	@Given("A user must be able to view search field")
+	@Alias("A user must be able to lauch the application")
 	public void homepage() throws MalformedURLException {
 		CommonMethods.openStartActivity();
 		home.assertInputFieldExists();
@@ -48,6 +52,19 @@ public class MySteps {
 	public void searchRange(@Named("element") String element) throws Exception {
 
 		home.inputSearchText(element);
+	}
+
+	@When("A user click's the Toast Button")
+	public void clickToastButton() {
+
+		home.clickToastButton();
+
+	}
+
+	@Then("verify the toast message is displayed")
+	public void verifyToastMessage() {
+
+		home.assertToastMessage();
 	}
 
 	@Then("verify the text enter is <element>")

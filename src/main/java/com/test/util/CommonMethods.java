@@ -1,9 +1,7 @@
 package com.test.util;
 
 import io.selendroid.SelendroidCapabilities;
-import io.selendroid.SelendroidConfiguration;
 import io.selendroid.SelendroidDriver;
-import io.selendroid.SelendroidLauncher;
 import io.selendroid.device.DeviceTargetPlatform;
 
 import java.io.File;
@@ -19,7 +17,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.Augmenter;
 import org.testng.Assert;
 
-public class CommonMethods {
+public class CommonMethods extends TestWaiter{
 
 	
 	public static WebDriver driver;
@@ -68,6 +66,12 @@ public class CommonMethods {
 	public void assertTextPresent(String ID, String element) {
 		Assert.assertEquals(element, driver.findElement(By.id(ID)).getText());
 
+	}
+	
+	public void assertTextByPartialLink(String text){
+	    WebElement toast = waitForElement(By.linkText(text), 4, driver);
+	   // System.out.println(toast.getText().toString());
+	    Assert.assertNotNull(toast);
 	}
 
 	public void clearField(String id) {
