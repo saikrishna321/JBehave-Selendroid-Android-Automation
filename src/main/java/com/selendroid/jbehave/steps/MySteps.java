@@ -15,11 +15,13 @@ import org.jbehave.core.annotations.When;
 import org.testng.annotations.AfterClass;
 
 import com.selendroid.jbehave.pages.HomePage;
+import com.selendroid.jbehave.pages.RegisterNativeView;
 import com.test.util.CommonMethods;
 
 public class MySteps {
 
 	HomePage home = new HomePage();
+	RegisterNativeView register= new RegisterNativeView();
 
 	@BeforeStories
 	public void startServer() throws Exception {
@@ -54,6 +56,24 @@ public class MySteps {
 		home.inputSearchText(element);
 	}
 
+	@When("A user click's on the Register page")
+	public void registerUser() {
+    
+		 home.clickRegisterPage();
+	}
+
+	@When("register with valid details")
+	public void registerWithValidDetails() {
+          
+		register.registerUserWithDetails();
+		register.enterEmailByName();
+		register.enterPassword();
+		register.acceptAdds();
+		register.clickRegisterUserButton();
+		//Add details as the per the selendroid example
+		
+	}
+
 	@When("A user click's the Toast Button")
 	public void clickToastButton() {
 
@@ -65,6 +85,12 @@ public class MySteps {
 	public void verifyToastMessage() {
 
 		home.assertToastMessage();
+	}
+	
+	@Then("verify the user registered")
+	public void verifyUserRegistered(){
+		
+		register.assertUserRegister();
 	}
 
 	@Then("verify the text enter is <element>")

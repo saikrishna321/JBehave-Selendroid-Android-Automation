@@ -17,9 +17,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.Augmenter;
 import org.testng.Assert;
 
-public class CommonMethods extends TestWaiter{
+public class CommonMethods extends TestWaiter {
 
-	
 	public static WebDriver driver;
 	final static String pathSeparator = File.separator;
 	public static final String NATIVE_APP = "NATIVE_APP";
@@ -67,11 +66,10 @@ public class CommonMethods extends TestWaiter{
 		Assert.assertEquals(element, driver.findElement(By.id(ID)).getText());
 
 	}
-	
-	public void assertTextByPartialLink(String text){
-	    WebElement toast = waitForElement(By.linkText(text), 4, driver);
-	   // System.out.println(toast.getText().toString());
-	    Assert.assertNotNull(toast);
+
+	public void assertTextByPartialLink(String text) {
+		WebElement toast = waitForElement(By.linkText(text), 4, driver);
+		Assert.assertNotNull(toast);
 	}
 
 	public void clearField(String id) {
@@ -117,4 +115,29 @@ public class CommonMethods extends TestWaiter{
 	public void inputByID(String ID, String sendParam) {
 		driver.findElement(By.id(ID)).sendKeys(sendParam);
 	}
+
+	public void inputByName(String name, String sendParam) {
+		driver.findElement(By.name(name)).sendKeys(sendParam);
+
+	}
+
+	public void inputByLinkText(String name, String sendParam) {
+		driver.findElement(By.linkText(name)).sendKeys(sendParam);
+
+	}
+
+	public void inputByClassName(String classname, String sendParam) {
+		driver.findElement(By.className(classname)).sendKeys(sendParam);
+	}
+
+	public void clickByClassName(String classname) {
+		driver.findElement(By.className(classname)).click();
+	}
+
+	public void clickByLinkText(String name) {
+		driver.findElement(By.linkText(name)).click();
+
+	}
+	
+
 }

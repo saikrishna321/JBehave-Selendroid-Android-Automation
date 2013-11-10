@@ -10,4 +10,5 @@ public class ObjectRepo {
 	public static final String buttonLoginId="signin_btn";
 	public static final String searchField="my_text_field";
 	public static final String toastButton = "showToastButton";
+	public static String registerPage="startUserRegistration";
 }
